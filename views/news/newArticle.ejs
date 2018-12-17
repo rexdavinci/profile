@@ -1,0 +1,26 @@
+<% include ../partials/header %>
+<h1> This is will be in the admin route</h1>
+
+<form action = "/news" method="POST">
+    <div class="form-group">
+        <label for="source">Source</label>
+        <input type="text" class="form-control" name="source" placeholder="source">
+    </div>
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" name="title" placeholder="title">
+    </div>
+    <div class="form-group">
+        <label for="Image">Image</label>
+        <input type="text" class="form-control" name="image" placeholder="image">
+    </div>
+    <div class="form-group">
+        <label for="Content">Content</label>
+        <textarea class="form-control" name="body" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+        <input class="btn btn-info" type="submit" value="Post Article">
+    </div>
+</form>
+
+<% include ../partials/footer %>

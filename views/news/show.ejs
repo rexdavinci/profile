@@ -1,0 +1,18 @@
+<% include ../partials/header %>
+
+<h2 class="text-center"> <%= article.title %> </h2>
+<p class="text-muted"><%= article.created.toDateString() %></p>
+<img src="#" alt="<%= article.image %>">
+<p class="text-justify"> <%- article.body %></p>
+<p><i>Source: <a href="#"><%= article.source %></a></i></p>
+
+<div class="d-flex">
+    <a href="/news/<%=article._id%>/edit">Edit</a>
+</div>
+<form class="mb-2 py-2" action="/news/<%=article._id%>?_method=DELETE" method="POST">
+    <button class="btn btn-danger">Delete</button>
+</form>
+
+
+
+<% include ../partials/footer %>

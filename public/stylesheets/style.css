@@ -3,6 +3,25 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
+/* a {
   color: #00B7FF;
+} */
+.container{
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.jumbotron{
+  background-color: white;
+}
+nav a:hover {
+  text-decoration: none;
+  background: rgb(151, 163, 151);
+  opacity: 0.8;
+  color: white
+}
+
+nav a:active {
+  background: #6c757d !important;
+  color: white;
 }
