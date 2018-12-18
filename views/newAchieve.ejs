@@ -1,0 +1,22 @@
+<% include partials/header %>
+
+<form id="contact-form" action="/achievements" method="POST">
+    <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" class="form-control" name="title" placeholder="title">
+    </div>
+    <div class="form-group">
+        <label for="image">Image:</label>
+        <input type="text" class="form-control" name="image" placeholder="image">
+    </div>
+    <div class="form-group">
+        <label for="content">Content:</label>
+        <textarea class="form-control" name="content" rows="5"></textarea>
+    </div>
+    <div class="form-group">
+        <input class="btn btn-info" type="submit" value="Send">
+    </div>
+
+</form>
+
+<%include partials/footer %>

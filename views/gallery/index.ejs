@@ -1,5 +1,26 @@
 <% include ../partials/header %>
 
-<h1>Gallery Follows</h1>
+
+<div class="row mb-4">
+    <% photos.forEach(function(photo){ %>
+    <div class="col-4 col-lg-2">
+        <div class="mb-2">
+            <div class="card bg-dark text-white text-center">
+                <img class="card-img" src="<%=photo.image%>" width="30%" alt="<%=photo.title%>">
+                <div class="card-img-overlay">
+                    <h5 class="card-title">
+                        <%=photo.title%>
+                    </h5>
+                    <p class="card-text">
+                        <%=photo.caption%>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%})%>
+</div>
+
+
 
 <% include ../partials/footer %>

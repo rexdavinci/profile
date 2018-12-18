@@ -1,0 +1,16 @@
+<% include partials/header %>
+
+<h3 class="text-center"> <%= info.title %> </h3>
+<p class="text-muted"><%= info.added.toDateString() %></p>
+<img src="" alt="<%= info.image %>">
+<p class="text-justify"> <%- info.content %></p>
+<div class="d-flex">
+    <a href="/achievements/<%=info._id%>/edit">Edit</a>
+</div>
+<form class="mb-2 py-2" action="/achievements/<%=info._id%>?_method=DELETE" method="POST">
+    <button class="btn btn-danger">Delete</button>
+</form>
+
+
+
+<% include partials/footer %>

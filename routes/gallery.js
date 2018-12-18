@@ -1,38 +1,38 @@
 var express = require("express");
 var router = express.Router();
 var Gallery = require("../models/gallery");
-var multer = require('multer');
+// var multer = require('multer');
 
-var storage = multer.diskStorage({
-    destination: (req, file, cb)=>{
-        cb(null, './uploads/');
-    },
-    filename: (req, file, cb) =>{
-        cb(null, new Date().toISOString() + file.originalname);
-    }
-});
+// var storage = multer.diskStorage({
+//     destination: (req, file, cb)=>{
+//         cb(null, './uploads/');
+//     },
+//     filename: (req, file, cb) =>{
+//         cb(null, new Date().toISOString() + file.originalname);
+//     }
+// });
 
-var fileFilter = (req, file, cb) => {
+// var fileFilter = (req, file, cb) => {
 
-    if (file.mimetype === "image/jpeg || file.mimetype ==image/png") {
-      cb(null, true); //accepts type of files
-    } else {
-      cb(null, false); //ignore file
-    }   
-};
+//     if (file.mimetype === "image/jpeg || file.mimetype ==image/png") {
+//       cb(null, true); //accepts type of files
+//     } else {
+//       cb(null, false); //ignore file
+//     }   
+// };
 
-var upload = multer({ 
-    storage: storage,
-    limits: {
-        fileSize: 1024 * 1024 * 3
-    }, 
-    fileFilter: fileFilter });
+// var upload = multer({ 
+//     storage: storage,
+//     limits: {
+//         fileSize: 1024 * 1024 * 3
+//     }, 
+//     fileFilter: fileFilter });
 
 router.get("/", (req, res) => {
   Gallery.find({})
     .exec()
     .then(media => {
-      res.status(200).render("gallery/index");
+      res.status(200).render("gallery/index", {photos: media});
     })
     .catch(err => {
       console.log(err.message);
@@ -40,13 +40,13 @@ router.get("/", (req, res) => {
 });
 
 router.get("/new", (req, res) => {
-  res.render("gallery/newMedia");
+  res.render("gallery/newPhoto");
 });
 
-router.post("/", upload.single('photo'), (req, res, next) => {
-  var Media = Gallery.create(req.body)
-    .then(article => {
-      res.status(201).redirect("/");
+router.post("/", (req, res, next) => {
+  var media = Gallery.create(req.body)
+    .then(photo => {
+      res.status(201).redirect("/gallery");
     })
     .catch(err => {
       console.log(err.message);

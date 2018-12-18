@@ -1,0 +1,25 @@
+<% include partials/header %>
+<% mails.forEach(function(mail){ %>
+
+
+    <div>
+<p>Email:
+    <%=mail.email%>
+</p>
+<p>Subject:
+    <%=mail.subject%>
+</p>
+<p>Message:
+    <%=mail.content%>
+</p>
+
+<a href="<%=mail._id%>">Continue viewing...</a>
+
+
+<hr>
+    </div>
+    
+<%})%>
+
+
+<%include partials/footer %>

@@ -1,0 +1,12 @@
+<% include partials/header %>
+
+<p>Email: <%= message.email %></p>
+<p>Subject: <%= message.subject %></p>
+<p>Message: <%=message.content %></p>
+
+
+<form action='/contact/<%=message._id%>?_method=DELETE' method="POST">
+    <button class="btn btn-outline-danger">Delete</button>
+</form>
+
+<% include partials/footer %>

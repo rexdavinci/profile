@@ -1,0 +1,24 @@
+<% include ../partials/header %>
+<h1> This is will be in the admin route</h1>
+
+<form action="/gallery" method="POST">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" name="title" placeholder="Title">
+    </div>
+    <div class="form-group">
+        <label for="caption">Caption</label>
+        <input type="text" class="form-control" name="caption" placeholder="Caption">
+    </div>
+    <form>
+        <div class="form-group">
+            <label for="imageupload">Upload Image</label>
+            <input type="file" class="form-control-file" id="imageUpload">
+        </div>
+    </form>
+    <div class="form-group">
+        <input class="btn btn-info" type="submit" value="Upload File">
+    </div>
+</form>
+
+<% include ../partials/footer %>

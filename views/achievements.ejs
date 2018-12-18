@@ -1,0 +1,24 @@
+<% include partials/header %>
+
+<div class="row mb-2">
+    <% infos.forEach(function(info){ %>
+    <div class="col-md-6">
+        <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+            <div class="card-body d-flex flex-column align-items-start">
+                <h3 class="mb-0">
+                    <a class="text-dark" href="#">
+                        <%=info.title%></a>
+                </h3>
+                <div class="mb-1 text-muted">
+                    <%=info.added.toDateString()%>
+                </div>
+                <p class="card-text mb-auto">
+                    <%-info.content.substring(0, 100)%>...</p>
+                <a href="/achievements/<%=info._id%>">Continue reading...</a>
+            </div>
+        </div>
+    </div>
+    <% }) %>
+</div>
+
+<% include partials/footer %>
