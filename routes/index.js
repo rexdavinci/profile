@@ -29,8 +29,8 @@ router.post('/contact', (req, res) => {
 
 });
 
-router.get('/contact/secret', (req,res)=>{
-    Mail.find({})
+router.get('/contact/'+process.env.PRIVATE_ROUTE, (req,res)=>{
+    Mail.find()
       .exec()
       .then(mail => { res.status(200).render('mails', { mails: mail }); })
       .catch(err => { console.log(err.message); });
@@ -44,7 +44,7 @@ router.get('/contact/:id', (req, res) => {
 
 router.delete('/contact/:id', (req, res) => {
   Mail.findByIdAndDelete(req.params.id).then(deleted => {
-    res.redirect('/contact/secret');
+    res.redirect('/contact/'+process.env.PRIVATE_ROUTE);
   }).catch(err => { console.log(err.message); });
 });
 

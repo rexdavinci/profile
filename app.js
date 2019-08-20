@@ -15,7 +15,7 @@ var galleryRoutes = require("./routes/gallery");
 
 mongoose
   .connect(
-    "mongodb://localhost/nass",
+    process.env.DATABASE,
     { useNewUrlParser: true }
   )
   .then(() => console.log(`Database connected`))
